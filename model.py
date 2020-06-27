@@ -1,4 +1,3 @@
-# Importing the libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -32,8 +31,8 @@ regressor = LinearRegression()
 regressor.fit(X, y)
 
 # Saving model to disk
-pickle.dump(regressor, open('model.pkl','wb'))
+pickle.dump(regressor, open('model1.pkl','wb'))
 
 # Loading model to compare the results
-model = pickle.load(open('model.pkl','rb'))
-print(model.predict([[2, 9, 6]]))
+model = pickle.load(open('model1.pkl','rb'))
+print(model.predict([[6, 0, 9]]))
