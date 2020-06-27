@@ -1,35 +1,92 @@
 <!DOCTYPE html>
-<html >
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>ML API</title>
-  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   
+    <title>Salary Prediction</title>
 </head>
-
 <body>
- <div class="login">
-	<h1>Predict Salary Analysis</h1>
+    
+    <div class="container">
+        <div class="row">
+            <div class="heading col-sm-6">
+                <h1>Salary Prediction</h1>
+            </div>
+            <div class="form col-sm-6">
+                <form action="{{ url_for('predict')}}" method="post">
+                    <div class="col-sm-12 form-group">
+                        <div class="col-sm-12 name">
+                            <label for="name">Name:</label>
+                        </div>
+                        <div class=" col-sm-6">
+                            <input class = "form-control" type="text" value="" name="fname" placeholder="First Name" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class = "form-control" type="text" value="" name="lname" placeholder="Last Name" required>
+                        </div>   
+                    </div>
 
-     <!-- Main Input For Receiving Query to our ML -->
-    <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="experience" placeholder="Experience" required="required" />
-        <input type="text" name="test_score" placeholder="Test Score" required="required" />
-		<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
-    </form>
-
-   <br>
-   <br>
-   {{ prediction_text }}
-
- </div>
 
 
+                    <div class="col-sm-12 form-group">
+                        <div class="col-sm-12 name">
+                            <label>Experience</label>
+                        </div>
+                        <div class="col-sm-12">
+                            <input class = "form-control" type="text" value="" name="Experience" placeholder="Experience" required>
+                        </div>     
+                    </div>
+
+
+
+
+
+
+                    <div class="col-sm-12 form-group">
+                        <div class="col-sm-12 name">
+                            <label>Type</label>
+                        </div>
+                        <div class="col-sm-12">
+                                <input class = "form-control" type="text" value="" name="Type" placeholder="Type (Type in 0 to 5)" required>
+                        </div>     
+                    </div>
+                    
+                    
+                    <div class="col-sm-12 form-group">
+                        <div class="col-sm-12 name">
+                            <label>Test Score</label>
+                        </div>
+                        <div class="col-sm-12">
+                            <input class = "form-control" type="text" value="" name="TestScore" placeholder="Test Score" required>
+                        </div>     
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <div class="button">
+                        <button type="submit" class="btn btn-primary col-sm-3">Submit</button>      
+                    </div>
+                    
+                    <div  class="col-sm-12">
+                        
+                        <p> <br>{{ prediction_text }}</p>
+                        
+                        </div>
+                           
+                </form>
+            </div>    
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 </html>
